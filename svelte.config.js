@@ -16,10 +16,5 @@ export default {
     router: {
       type: 'hash',
     },
-    paths: {
-      // Deno 환경에서도 안전하게 작동하는 Vite 기본 인수나
-      // GitHub Actions가 주입해주는 환경변수(GITHUB_ACTIONS)를 활용하는 방법입니다.
-      base: process.env.GITHUB_ACTIONS ? '/davidpomelobeauty.github.io' : '',
-    },
   },
 };
