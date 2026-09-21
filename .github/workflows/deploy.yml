@@ -1,0 +1,49 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ['main'] # 배포 대상 브랜치 (필요에 따라 master로 변경)
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }} # Actions 탭에서 배포된 링크를 바로 확인할 수 있게 추가
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x # 최신 Deno v2 버전 사용
+
+      - name: Install dependencies
+        run: deno install
+
+      - name: Build Project
+        run: deno task build
+        env:
+          NODE_ENV: production # SvelteKit base path 설정을 위해 환경 변수 주입
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5 # 최신 버전(v5) 권장
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './build' # SvelteKit 정적 빌드 결과물 폴더로 수정
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
