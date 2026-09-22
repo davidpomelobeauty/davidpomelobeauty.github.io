@@ -13,7 +13,8 @@
     toaster.info({ description: singleSpace.match(startReg), duration: 10000 });
     toaster.info({ description: singleSpace.match(endReg), duration: 10000 });
 
-    const regex = new RegExp(`${startReg.source}(.*?)${endReg.source}`, 's');
+    const regex = new RegExp(/98233-3204(.*?)Need\s+Help\?/, 's');
+    // const regex = new RegExp(`${startReg.source}(.*?)${endReg.source}`, 's');
     const match = withNewLine.match(regex);
     const result = match ? match[1] : '';
 
