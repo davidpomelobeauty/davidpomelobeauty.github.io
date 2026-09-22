@@ -6,4 +6,4 @@
 @import '@skeletonlabs/skeleton-svelte';
 
 /* 프로젝트에 적용할 기본 내장 테마 임포트 (예: cerberus, pop, modern 등) */
-@import '@skeletonlabs/skeleton/themes/cerberus';
+@import '@skeletonlabs/skeleton/themes/pine';
