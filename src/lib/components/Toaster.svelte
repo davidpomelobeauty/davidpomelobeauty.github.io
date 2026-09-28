@@ -11,7 +11,7 @@
     <Toast {toast}>
       <Toast.Message>
         <Toast.Title>{toast.title}</Toast.Title>
-        <Toast.Description>{toast.description}</Toast.Description>
+        <Toast.Description class={toast.meta?.customClass ?? ''}>{toast.description}</Toast.Description>
       </Toast.Message>
       <Toast.CloseTrigger />
     </Toast>

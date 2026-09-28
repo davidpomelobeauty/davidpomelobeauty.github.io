@@ -1,37 +1,52 @@
 <script lang="ts">
-  import Item from '$lib/services/item';
   import { toaster } from '$lib/toaster';
 
   let text = $state('');
 
   function handlePaste(event: ClipboardEvent) {
     const original = event.clipboardData ? event.clipboardData.getData('text') : '';
-    // const singleSpace = original.replace(/\s+/g, ' ');
-    const withNewLine = original.replace(/[^\S\r\n]+/g, ' ');
-    const startReg = /Shipping Details[\s\S]*?98233-3204\r?\n/;
-    const endReg = /\r?\nNeed Help\?/;
-
-    // toaster.info({ description: withNewLine.match(startReg), duration: 10000 });
-    // toaster.info({ description: withNewLine.match(endReg), duration: 10000 });
-
+    const withNewLine = original.replace(/[^\S\n]+/g, ' ');
+    const startReg = /Shipping Details[\s\S]*?98233-3204/;
+    const endReg = /Need Help\?/;
     const regex = new RegExp(`${startReg.source}(.*?)${endReg.source}`, 's');
     const match = withNewLine.match(regex);
-    const result = match ? match[1].replace(/^$\r?\n/gm, '') : '';
+    const matched = match ? match[1] : '';
+    const result = matched
+      .replace(/^\s*$\n/gm, '') // 빈 줄 제거
+      .replace(/ +$/gm, '') // Trailing space 제거
+      .replace('Qty: ', '') // 수량 문자만 제거
+      .replace(/ \|.?/gm, '\n'); // 개별 총 금액 제거
+
+    console.log(JSON.stringify(result));
+    // toaster.info({ description: witshNewLine.match(startReg), duration: 10000 });
+    // toaster.info({ description: withNewLine.match(endReg), duration: 10000 });
 
     text = result;
     event.preventDefault();
+    const items = result
+      .split(/\nBuy It Again\n/)
+      .filter(Boolean)
+      .map((value) => {
+        const arr = value.trim().split(/\n/);
+        const item = {};
+        switch (arr.length) {
+          case 7:
+            break;
+          case 8:
+            break;
+          case 9:
+            break;
+        }
+        return arr;
+      });
+    console.log(items);
 
-    const items = result.split('Buy It Again'); //.map((value, index) => {});
-    toaster.info({
-      description: result,
-      duration: 10000,
-      meta: {
-        customClass: 'whitespace-pre-line',
-      },
-    });
-    // toaster.info({ description: items[0].match(/\r?\n/gm), duration: 10000 });
-    // toaster.info({ description: items[0].split(/\r?\n/).join(' / '), duration: 10000 });
-    // toaster.info({ description: items, duration: 10000 });
+    const singleSpace = original.replace(/\s+/g, ' ');
+    const startReg2 = /Shipping Details[\s\S]*?98233-3204/;
+    const endReg2 = /Need Help\?/;
+    const regex2 = new RegExp(`${startReg2.source}\\s(.*?)\\s${endReg2.source}`, 's');
+    const match2 = singleSpace.match(regex2);
+    const result2 = match2 ? match2[1] : '';
   }
 </script>
 
