@@ -1,6 +1,7 @@
 {
   "version": "5",
   "specifiers": {
+    "npm:@dinero.js/currencies@2.0.0-alpha.1": "2.0.0-alpha.1",
     "npm:@skeletonlabs/skeleton-svelte@^5.0.1": "5.0.1_svelte@5.57.1",
     "npm:@skeletonlabs/skeleton@^5.0.1": "5.0.1_tailwindcss@4.3.3",
     "npm:@sveltejs/adapter-static@^3.0.10": "3.0.10_@sveltejs+kit@2.70.3_@sveltejs+vite-plugin-svelte@7.3.0_@types+node@24.13.6_svelte@5.57.1_typescript@6.0.3_vite@8.3.0",
@@ -9,6 +10,7 @@
     "npm:@tailwindcss/vite@^4.3.3": "4.3.3_vite@8.3.0",
     "npm:@tsconfig/svelte@^5.0.8": "5.0.8",
     "npm:@types/node@^24.13.3": "24.13.6",
+    "npm:dinero.js@^2.0.2": "2.0.2",
     "npm:svelte-check@^4.7.6": "4.7.6_svelte@5.57.1_typescript@6.0.3",
     "npm:svelte@^5.57.0": "5.57.1",
     "npm:tailwindcss@^4.3.3": "4.3.3",
@@ -17,6 +19,10 @@
     "npm:vite@^8.3.0": "8.3.0_@types+node@24.13.6"
   },
   "npm": {
+    "@dinero.js/currencies@2.0.0-alpha.1": {
+      "integrity": "sha512-JoKY6q3AOm2II44qLp6VMGn+j+p6QC39m3DFogKZXsucWIIvzt7c2v04DZrrHWLNnDYNzITOnbQ7f2pGbONjig==",
+      "deprecated": true
+    },
     "@floating-ui/core@1.8.0": {
       "integrity": "sha512-0CIZ5itps/8x7BG8dEIhs53BvCUH2PCoogtakwRTut+Arm58sJooJ0AuZhLw2HJYIR5cMLNPBSS728sPho2khQ==",
       "dependencies": [
@@ -844,6 +850,9 @@
     "devalue@5.9.4": {
       "integrity": "sha512-sPAT4pztbu6586/hrhOnMKS17IJrvg12mXiSPSS3W5qDeN2RGgvZ0diZCm31dBbnevfVmujNO3IM2wrS4Y2Rhg=="
     },
+    "dinero.js@2.0.2": {
+      "integrity": "sha512-d+4egJTvNinkb66KSed11Daqz6MWaOHzyalLu6h3p+BLrsmwKFjHjvOKivOWeM7WyoX89te+xx4cKI6zrDtCfQ=="
+    },
     "enhanced-resolve@5.25.1": {
       "integrity": "sha512-nGXts5znJzmWPu+mIE9izCOzdg63oJca2mDzGWWTth7sr4aCToKcoyFVBQwN75Ij5Pf6p510EwkTqViTRzDV+w==",
       "dependencies": [
@@ -1234,6 +1243,7 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
+        "npm:@dinero.js/currencies@2.0.0-alpha.1",
         "npm:@skeletonlabs/skeleton-svelte@^5.0.1",
         "npm:@skeletonlabs/skeleton@^5.0.1",
         "npm:@sveltejs/adapter-static@^3.0.10",
@@ -1242,6 +1252,7 @@
         "npm:@tailwindcss/vite@^4.3.3",
         "npm:@tsconfig/svelte@^5.0.8",
         "npm:@types/node@^24.13.3",
+        "npm:dinero.js@^2.0.2",
         "npm:svelte-check@^4.7.6",
         "npm:svelte@^5.57.0",
         "npm:tailwindcss@^4.3.3",

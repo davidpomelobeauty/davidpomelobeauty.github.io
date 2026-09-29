@@ -14,8 +14,9 @@
     const result = matched
       .replace(/^\s*$\n/gm, '') // 빈 줄 제거
       .replace(/ +$/gm, '') // Trailing space 제거
-      .replace('Qty: ', '') // 수량 문자만 제거
-      .replace(/ \|.?/gm, '\n'); // 개별 총 금액 제거
+      .replace(/Qty\: /gm, '') // 수량 문자 제거
+      .replace(/ \| \$(\d+\.\d{2}) ea/gm, '\n$1') // 수량 | 개별 금액 사이 짝대기, ea 글자 제거
+      .replace(/\$\n(\d+\.\d{2})/, ''); // 개별 총 금액 제거
 
     console.log(JSON.stringify(result));
     // toaster.info({ description: witshNewLine.match(startReg), duration: 10000 });
