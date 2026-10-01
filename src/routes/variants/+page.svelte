@@ -1,4 +1,16 @@
-<script>
+<script lang="ts">
+  import { toaster } from '$lib/toaster';
+
+  let text = $state('');
+  function handlePaste(event: ClipboardEvent) {
+    event.preventDefault();
+  }
 </script>
 
-<h1>Variants</h1>
+<div class="flex sp-4">
+  <textarea
+    class="textarea w-full h-[90vh]"
+    onpaste={handlePaste}
+    bind:value={text}
+  ></textarea>
+</div>

@@ -1,22 +1,26 @@
 import { toDecimal, type Dinero } from 'dinero.js';
 
 export interface OrderItemArgs {
-  name: string;
   brandName: string;
+  name: string;
+  variantName?: string;
   quantity: number;
   price: Dinero<number>;
   size?: string;
 }
+
 export abstract class OrderItem {
-  name: string;
   brandName: string;
+  name: string;
+  variantName?: string;
   quantity: number;
   protected _price: Dinero<number>;
   size?: string;
 
   constructor(args: OrderItemArgs) {
-    this.name = args.name;
     this.brandName = args.brandName;
+    this.name = args.name;
+    this.variantName = args.variantName;
     this.quantity = args.quantity;
     this._price = args.price;
     this.size = args.size;
