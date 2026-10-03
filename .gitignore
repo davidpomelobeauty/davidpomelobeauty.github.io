@@ -5,6 +5,7 @@
 ### Deno ###
 /.idea/
 /.vscode/
+.deno/
 
 .env
 *.orig
@@ -88,5 +89,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-.deno/
