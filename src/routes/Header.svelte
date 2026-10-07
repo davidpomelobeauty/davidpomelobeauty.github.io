@@ -2,8 +2,9 @@
   import { AppBar } from '@skeletonlabs/skeleton-svelte';
 
   const links = [
-    { label: 'Variants', href: '#/' },
-    { label: 'P_Orders', href: '#/p_orders' },
+    { label: 'Home', href: '#/' },
+    { label: 'Variants', href: '#/variants' },
+    { label: 'Tmp', href: '#/tmp' },
   ];
 </script>
 
