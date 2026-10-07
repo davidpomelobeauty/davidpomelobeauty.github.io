@@ -1,6 +1,6 @@
 <script lang="ts">
   import '../app.css';
-  import Toaster from '$lib/components/Toaster.svelte';
+  import { Toaster } from '#lib';
   import Header from './Header.svelte';
 
   let { children } = $props();

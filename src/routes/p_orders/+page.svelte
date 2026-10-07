@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { toaster } from '$lib/toaster';
+  import { toaster } from '#lib';
 
   let text = $state('');
 

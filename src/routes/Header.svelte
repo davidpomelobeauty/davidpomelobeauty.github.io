@@ -1,5 +1,4 @@
 <script lang="ts">
-  import '../app.css';
   import { AppBar } from '@skeletonlabs/skeleton-svelte';
 
   const links = [
