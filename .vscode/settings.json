@@ -1,0 +1,27 @@
+{
+  // --- 프로젝트 전반 Deno 기능 활성화 ---
+  "deno.enable": true,
+  "deno.lint": true,
+
+  // --- 에디터 기본 설정 ---
+  "editor.defaultFormatter": "denoland.vscode-deno",
+  "editor.formatOnSave": true,
+  "editor.detectIndentation": false,
+  "editor.inlineSuggest.enabled": false,
+  "editor.tabSize": 2,
+  // "editor.quickSuggestions": {
+  // "comments": "off",
+  // "strings": true,
+  // "other": "on"
+  // },
+
+  // --- 언어별 개별 설정 (Svelte) ---
+  "[svelte]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+
+  // Svelte 확장 프로그램 자체 코드 포맷 (Prettier 방식) 방지
+  "svelte.plugin.svelte.format.enable": false,
+  "json.format.keepLines": true,
+  "emmet.showSuggestionsAsSnippets": true
+}
