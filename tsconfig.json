@@ -1,12 +1,10 @@
 {
   "extends": "$app/tsconfig",
   "compilerOptions": {
-    "compilerOptions": {
-      "allowJs": true,
-      "checkJs": true,
-      "forceConsistentCasingInFileNames": true,
-      "resolveJsonModule": true
-    }
+    "allowJs": true,
+    "checkJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
   },
   "paths": {
     "#lib": ["./src/lib/index.ts"],
