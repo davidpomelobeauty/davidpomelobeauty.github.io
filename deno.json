@@ -7,5 +7,29 @@
     "check:watch": "deno run -A npm:svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "nodeModulesDir": "auto",
-  "allowScripts": ["npm:svelte-kit"]
+  "allowScripts": ["npm:svelte-kit"],
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "deno.ns"]
+  },
+  "unstable": ["fmt-component"],
+  "lint": {
+    "include": ["src/"],
+    "rules": {
+      "tags": ["recommended"]
+    }
+  },
+  "fmt": {
+    "include": ["src/"],
+    "exclude": ["node_modules/", "dist/", ".svelte-kit/", "build/"],
+    "useTabs": false,
+    "indentWidth": 2,
+    "lineWidth": 1000,
+    "singleQuote": true,
+    "proseWrap": "always",
+
+    "semiColons": true,
+    "trailingCommas": "always",
+    "quoteProps": "asNeeded",
+    "useBraces": "always"
+  }
 }

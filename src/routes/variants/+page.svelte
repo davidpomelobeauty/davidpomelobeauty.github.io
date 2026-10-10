@@ -1,39 +1,37 @@
 <script lang="ts">
-  import { toaster } from '#lib';
+import { toaster, } from '#lib';
 
-  let contents = $state('');
+// let contents = $state('');
 
-  function handlePaste(event: ClipboardEvent) {
-    event.preventDefault();
+function handlePaste(event: ClipboardEvent,) {
+  event.preventDefault();
 
-    const original = event?.clipboardData?.getData('text') ?? '';
-    const withNewLine = original.replace(/\r+/g, '').replace(/[^\S\n]+/, ' ');
-    const [, text = ''] = withNewLine.match(/Deals\n(.*?)Contact Us/s) || [];
-    contents = text;
+  // 2. 클립보드에서 'text/html' 데이터 가져오기 (타 사이트의 원본 태그 구조)
+  let htmlData = event.clipboardData?.getData('text/html',) || '';
 
-    /* Title; */
-    const [, brandName = '', productName = ''] = text.match(/^(.*)\n(.*)\nSKU#/m) || [];
-    const title = brandName.substring(brandName.indexOf('by ') + 3) + (brandName ? ' ' : '') + productName;
-    console.log(JSON.stringify(title));
-
-    /* Price */
-    const [, priceBlock = ''] = text.match(/Write a review\n(.*?)\nSearch by SKU or Name/s) || [];
-    const prices = [...priceBlock.matchAll(/\$(\d+\.\d+)/g)].map((match) => +match[1]) || [];
-    const price = Math.max(0, ...prices).toFixed(2);
-    console.log(JSON.stringify(price));
-
-    /* Detail */
-    const [, detail = ''] = text.match(/Detailscollapse\n(.*?)\nDirectionsexpand/s) || [];
-    // console.log(JSON.stringify(detail));
-
-    /* Variants */
+  const selection = window.getSelection();
+  if (!selection || selection.rangeCount === 0) {
+    return;
   }
+
+  // 드래그 내용 삭제
+  selection.deleteFromDocument();
+
+  const range = selection.getRangeAt(0,);
+  const fragment = range.createContextualFragment(htmlData,);
+
+  range.insertNode(fragment,);
+
+  // 5. 붙여넣은 후 커서를 삽입된 내용의 맨 뒤로 이동
+  selection.collapseToEnd();
+}
 </script>
 
+<!-- class="textarea w-full h-[90vh] resize-none overflow-y-auto block p-4" -->
 <div class="flex sp-4">
-  <textarea
-    class="textarea w-full h-[90vh]"
+  <div
+    contenteditable="true"
+    class="textarea w-20 h-12 resize-none overflow-y-auto block p-4"
     onpaste={handlePaste}
-    bind:value={contents}
-  ></textarea>
+  ></div>
 </div>
