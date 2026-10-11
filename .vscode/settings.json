@@ -1,8 +1,4 @@
 {
-  // --- 프로젝트 전반 Deno 기능 활성화 ---
-  "deno.enable": true,
-  "deno.lint": true,
-
   // --- 에디터 기본 설정 ---
   "editor.defaultFormatter": "denoland.vscode-deno",
   "editor.formatOnSave": true,
@@ -15,13 +11,22 @@
   // "other": "on"
   // },
 
-  // --- 언어별 개별 설정 (Svelte) ---
-  "[svelte]": {
-    "editor.defaultFormatter": "denoland.vscode-deno"
-  },
+  // ---- Deno 설정 ---
+  "deno.enable": true, // 프로젝트 전반 Deno 기능 활성화
+  "deno.lint": true,
+  "deno.suggest.imports": true,
 
-  // Svelte 확장 프로그램 자체 코드 포맷 (Prettier 방식) 방지
-  "svelte.plugin.svelte.format.enable": false,
+  // --- Svelte 설정 ---
+  "svelte.enable-ts-plugin": true,
+  "svelte.plugin.svelte.format.enable": true,
+
+  // --- Json 설정 ---
   "json.format.keepLines": true,
+
+  // --- 언어별 개별 설정 (Svelte) ---
+  // "[svelte]": {
+  // "editor.defaultFormatter": "svelte.svelte-vscode"
+  // },
+
   "emmet.showSuggestionsAsSnippets": true
 }

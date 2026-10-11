@@ -1,6 +1,8 @@
 {
   "extends": "$app/tsconfig",
   "compilerOptions": {
+    "strict": true,
+    "strictNullChecks": true,
     "allowJs": true,
     "checkJs": true,
     "forceConsistentCasingInFileNames": true,

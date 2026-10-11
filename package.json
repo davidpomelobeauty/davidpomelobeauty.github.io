@@ -9,6 +9,10 @@
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json"
   },
+  "dependencies": {
+    "dompurify": "^3.4.16",
+    "node-html-parser": "^9.0.4"
+  },
   "devDependencies": {
     "@skeletonlabs/skeleton": "^5.0.1",
     "@skeletonlabs/skeleton-svelte": "^5.0.1",

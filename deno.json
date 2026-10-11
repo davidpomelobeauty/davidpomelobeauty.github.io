@@ -6,29 +6,46 @@
     "check": "deno run -A npm:svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "deno run -A npm:svelte-check --tsconfig ./tsconfig.json --watch"
   },
-  "nodeModulesDir": "auto",
-  "allowScripts": ["npm:svelte-kit"],
   "compilerOptions": {
+    "strict": true,
+    "strictNullChecks": true,
     "lib": ["dom", "dom.iterable", "deno.ns"]
   },
+  "nodeModulesDir": "auto",
+  "allowScripts": ["npm:svelte-kit"],
+  "importDeclaration.spaceSurroundingNamedImports": true,
+  "importDeclaration.forceSingleLine": true,
+  "noFallthroughCasesInSwitch": true,
+  "noEditorConfig": true,
   "unstable": ["fmt-component"],
   "lint": {
-    "include": ["src/"],
+    "exclude": ["node_modules/", ".svelte-kit/", "dist/", "build/"],
     "rules": {
-      "tags": ["recommended"]
+      "tags": ["recommended"],
+      "include": [
+        "eqeqeq",
+        "no-eval",
+        "no-sparse-arrays",
+        "no-throw-literal",
+        "camelcase",
+        "guard-for-in",
+
+        "verbatim-module-syntax",
+        "no-external-import",
+        "explicit-function-return-type",
+        "no-sync-fn-in-async-fn"
+      ]
     }
   },
   "fmt": {
-    "include": ["src/"],
-    "exclude": ["node_modules/", "dist/", ".svelte-kit/", "build/"],
+    "exclude": ["node_modules/", ".svelte-kit/", "dist/", "build/"],
     "useTabs": false,
     "indentWidth": 2,
-    "lineWidth": 1000,
+    "lineWidth": 120,
     "singleQuote": true,
-    "proseWrap": "always",
-
+    "proseWrap": "preserve",
     "semiColons": true,
-    "trailingCommas": "always",
+    "trailingCommas": "onlyMultiLine",
     "quoteProps": "asNeeded",
     "useBraces": "always"
   }
