@@ -12,7 +12,13 @@
     "lib": ["dom", "dom.iterable", "deno.ns"]
   },
   "nodeModulesDir": "auto",
-  "allowScripts": ["npm:svelte-kit"],
+  "allowScripts": {
+    "allow": [
+      "npm:svelte-kit",
+      "npm:@parcel/watcher@2.6.0"
+    ],
+    "deny": []
+  },
   "importDeclaration.spaceSurroundingNamedImports": true,
   "importDeclaration.forceSingleLine": true,
   "noFallthroughCasesInSwitch": true,
