@@ -19,10 +19,6 @@
     ],
     "deny": []
   },
-  "importDeclaration.spaceSurroundingNamedImports": true,
-  "importDeclaration.forceSingleLine": true,
-  "noFallthroughCasesInSwitch": true,
-  "noEditorConfig": true,
   "unstable": ["fmt-component"],
   "lint": {
     "exclude": ["node_modules/", ".svelte-kit/", "dist/", "build/"],
